@@ -42,22 +42,124 @@ const Header = () => {
 
           {/* Navigation Menu */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link 
-              href="/iddsi-guide" 
-              className={`font-medium transition-colors duration-300 hover:text-amber-500 ${
+          {/* Disfagia con submenú */}
+          <div className="relative group">
+            <button 
+              className={`font-medium transition-colors duration-300 hover:text-amber-500 flex items-center space-x-1 ${
                 isScrolled ? 'text-gray-700' : 'text-white'
               }`}
             >
-              Tratamientos
-            </Link>
-            <Link 
-              href="/menu" 
-              className={`font-medium transition-colors duration-300 hover:text-amber-500 ${
-                isScrolled ? 'text-gray-700' : 'text-white'
-              }`}
-            >
-              Menús y Recetas
-            </Link>
+              <span>Disfagia</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            
+            {/* Submenú */}
+            <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+              <div className="py-2">
+                <Link 
+                  href="/disfagia/que-es" 
+                  className="block px-4 py-3 text-gray-700 hover:bg-amber-50 hover:text-amber-600 transition-colors duration-200"
+                >
+                  ¿Qué es?
+                </Link>
+                <Link 
+                  href="/disfagia/sintomas" 
+                  className="block px-4 py-3 text-gray-700 hover:bg-amber-50 hover:text-amber-600 transition-colors duration-200"
+                >
+                  Síntomas
+                </Link>
+              </div>
+            </div>
+          </div>
+            {/* Tratamientos con submenú */}
+            <div className="relative group">
+              <button 
+                className={`font-medium transition-colors duration-300 hover:text-amber-500 flex items-center space-x-1 ${
+                  isScrolled ? 'text-gray-700' : 'text-white'
+                }`}
+              >
+                <span>Tratamientos</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {/* Submenú Tratamientos */}
+              <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <div className="py-2">
+                  <Link 
+                    href="/tratamientos/como-se-trata" 
+                    className="block px-4 py-3 text-gray-700 hover:bg-amber-50 hover:text-amber-600 transition-colors duration-200"
+                  >
+                    ¿Cómo se trata la disfagia?
+                  </Link>
+                  <Link 
+                    href="/tratamientos/desnutricion" 
+                    className="block px-4 py-3 text-gray-700 hover:bg-amber-50 hover:text-amber-600 transition-colors duration-200"
+                  >
+                    Desnutrición y disfagia
+                  </Link>
+                  <Link 
+                    href="/tratamientos/adaptacion-texturas" 
+                    className="block px-4 py-3 text-gray-700 hover:bg-amber-50 hover:text-amber-600 transition-colors duration-200"
+                  >
+                    Adaptación de texturas
+                  </Link>
+                  <Link 
+                    href="/tratamientos/alimentos-riesgo" 
+                    className="block px-4 py-3 text-gray-700 hover:bg-amber-50 hover:text-amber-600 transition-colors duration-200"
+                  >
+                    Alimentos de Riesgo
+                  </Link>
+                  <Link 
+                    href="/tratamientos/recomendaciones-posturales" 
+                    className="block px-4 py-3 text-gray-700 hover:bg-amber-50 hover:text-amber-600 transition-colors duration-200"
+                  >
+                    Recomendaciones Posturales
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Menús y Recetas con submenú */}
+            <div className="relative group">
+              <button 
+                className={`font-medium transition-colors duration-300 hover:text-amber-500 flex items-center space-x-1 ${
+                  isScrolled ? 'text-gray-700' : 'text-white'
+                }`}
+              >
+                <span>Menús y Recetas</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {/* Submenú Menús y Recetas */}
+              <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                <div className="py-2">
+                  <Link 
+                    href="/menu" 
+                    className="block px-4 py-3 text-gray-700 hover:bg-amber-50 hover:text-amber-600 transition-colors duration-200"
+                  >
+                    Menús
+                  </Link>
+                  <Link 
+                    href="/recetas" 
+                    className="block px-4 py-3 text-gray-700 hover:bg-amber-50 hover:text-amber-600 transition-colors duration-200"
+                  >
+                    Recetas
+                  </Link>
+                  <Link 
+                    href="/videorecetas" 
+                    className="block px-4 py-3 text-gray-700 hover:bg-amber-50 hover:text-amber-600 transition-colors duration-200"
+                  >
+                    Videorecetas
+                  </Link>
+                </div>
+              </div>
+            </div>
             <Link 
               href="/about" 
               className={`font-medium transition-colors duration-300 hover:text-amber-500 ${
@@ -74,14 +176,7 @@ const Header = () => {
             >
               Habla con un experto
             </Link>
-            <Link 
-              href="/accessibility" 
-              className={`font-medium transition-colors duration-300 hover:text-amber-500 ${
-                isScrolled ? 'text-gray-700' : 'text-white'
-              }`}
-            >
-              Nosotros
-            </Link>
+           
           </nav>
 
           {/* Mobile Menu Button */}

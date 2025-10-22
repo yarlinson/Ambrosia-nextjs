@@ -1,36 +1,190 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🍽️ Ambrosia - Restaurante Especializado en IDDSI
 
-## Getting Started
+**"ADECUAMOS TU COMIDA, CUIDAMOS DE TI"**
 
-First, run the development server:
+Restaurante especializado en menús adaptados según las guías IDDSI (International Dysphagia Diet Standardisation Initiative), enfocado en la inclusión social de personas con disfagia.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🎯 **Propósito del Proyecto**
+
+El restaurante ofrece un menú adaptado según las consistencias recomendadas por la guía IDDSI, para garantizar que los alimentos sean seguros, nutritivos y agradables visualmente. La idea es incluir socialmente a quienes sufren esta condición, permitiéndoles disfrutar nuevamente del acto de comer junto a sus familias, sin riesgo ni vergüenza.
+
+## ✨ **Características Principales**
+
+### 🧭 **Navegación Intuitiva**
+- **Header pegajoso** con logo de Ambrosia
+- **Submenús hover** para mejor organización del contenido
+- **Navegación responsive** para todos los dispositivos
+
+### 📚 **Contenido Educativo**
+- **¿Qué es la disfagia?** - Explicación completa con video de YouTube
+- **Síntomas detallados** - 8 síntomas con explicaciones específicas
+- **Tratamientos** - 5 secciones especializadas
+- **Menús y recetas** - 3 categorías de contenido
+
+### 🎨 **Diseño y UX**
+- **Paleta de colores** basada en el logo (amarillo vibrante y gris)
+- **Gradientes suaves** y transiciones elegantes
+- **Accesibilidad mejorada** para usuarios con disfagia
+- **Diseño responsive** optimizado para móviles
+
+## 🛠️ **Tecnologías Utilizadas**
+
+- **Framework**: Next.js 14+ (App Router)
+- **Lenguaje**: TypeScript
+- **Estilos**: Tailwind CSS
+- **Componentes**: React 18+
+- **Iconos**: SVG personalizados
+- **Optimización**: Next.js Image, Fonts
+
+## 📁 **Estructura del Proyecto**
+
+```
+src/
+├── app/                    # Rutas de Next.js App Router
+│   ├── disfagia/          # Páginas sobre disfagia
+│   │   ├── que-es/        # ¿Qué es la disfagia?
+│   │   └── sintomas/      # Síntomas detallados
+│   ├── tratamientos/      # Páginas de tratamientos
+│   ├── menu/              # Menús IDDSI
+│   └── recetas/           # Recetas adaptadas
+├── components/            # Componentes React
+│   ├── layout/           # Header, Footer
+│   └── ui/               # Componentes reutilizables
+├── constants/            # Constantes y configuraciones
+├── assets/               # Recursos estáticos
+└── styles/               # Estilos globales
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 **Instalación y Desarrollo**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### **Prerrequisitos**
+- Node.js 18+ 
+- npm, yarn, pnpm o bun
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **Instalación**
+```bash
+# Clonar el repositorio
+git clone [URL_DEL_REPOSITORIO]
 
-## Learn More
+# Instalar dependencias
+npm install
+# o
+yarn install
+# o
+pnpm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+### **Desarrollo**
+```bash
+# Iniciar servidor de desarrollo
+npm run dev
+# o
+yarn dev
+# o
+pnpm dev
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Abrir en el navegador
+# http://localhost:3000
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### **Build para Producción**
+```bash
+# Crear build optimizado
+npm run build
 
-## Deploy on Vercel
+# Iniciar servidor de producción
+npm start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🎨 **Paleta de Colores**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### **Colores Principales**
+- **Amarillo vibrante**: `#F4D03F` (Logo principal)
+- **Ámbar**: `#F39C12` (Gradientes y acentos)
+- **Gris oscuro**: `#2C3E50` (Texto y contraste)
+
+### **Colores Secundarios**
+- **Gris medio**: `#5D6D7E` (Texto secundario)
+- **Gris claro**: `#E9ECEF` (Fondos)
+- **Blanco**: `#FFFFFF` (Contraste)
+
+## 📱 **Páginas Implementadas**
+
+### **🏠 Página Principal**
+- Hero section con información del restaurante
+- Características principales
+- Call-to-action buttons
+
+### **📖 Disfagia**
+- **¿Qué es?** - Definición, tipos, impacto en la vida diaria
+- **Síntomas** - 8 síntomas detallados con niveles de severidad
+
+### **🔧 Tratamientos** (Submenú)
+- ¿Cómo se trata la disfagia?
+- Desnutrición y disfagia
+- Adaptación de texturas
+- Alimentos de Riesgo
+- Recomendaciones Posturales
+
+### **🍽️ Menús y Recetas** (Submenú)
+- Menús IDDSI
+- Recetas Adaptadas
+- Videorecetas
+
+## 🎯 **Niveles IDDSI Soportados**
+
+- **Nivel 0** - Líquidos finos
+- **Nivel 1** - Líquidos ligeramente espesos
+- **Nivel 2** - Líquidos moderadamente espesos
+- **Nivel 3** - Líquidos extremadamente espesos
+- **Nivel 4** - Purés extremadamente espesos
+- **Nivel 5** - Purés espesos
+- **Nivel 6** - Purés suaves y húmedos
+- **Nivel 7** - Alimentos regulares
+
+## 📊 **Estadísticas Importantes**
+
+- **15%** de los adultos mayores experimentan disfagia
+- **50%** de los pacientes post-ictus desarrollan disfagia
+- **80%** de los casos mejoran con tratamiento adecuado
+
+## 🔧 **Scripts Disponibles**
+
+```bash
+# Desarrollo
+npm run dev          # Servidor de desarrollo
+npm run build        # Build para producción
+npm run start        # Servidor de producción
+npm run lint         # Linting del código
+
+# Análisis
+npm run analyze      # Análisis del bundle
+```
+
+## 📝 **Contribución**
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📄 **Licencia**
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+
+## 👥 **Equipo**
+
+- **Desarrollo**: [Tu Nombre]
+- **Diseño**: Basado en identidad visual de Ambrosia
+- **Especialización**: Menús IDDSI y disfagia
+
+## 📞 **Contacto**
+
+- **Email**: info@ambrosia.com
+- **Teléfono**: +1 (555) 123-4567
+- **Dirección**: Calle Principal 123, Ciudad
+
+---
+
+**Ambrosia** - Donde la inclusión y la nutrición se encuentran 🍽️✨
