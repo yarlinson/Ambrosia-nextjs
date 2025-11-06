@@ -159,7 +159,7 @@ export default function SintomasDisfagia() {
                   Riesgo de aspiración
                 </h3>
                 <p className="text-[#6B6B5B] text-sm leading-relaxed">
-                  Los <strong>alimentos o bebidas se "vayan por otro lado", hacia los pulmones</strong> y se generen infecciones. 
+                  Los <strong>alimentos o bebidas se &quot;vayan por otro lado&quot;, hacia los pulmones</strong> y se generen infecciones. 
                   Este efecto se denomina aspiración.
                 </p>
               </div>

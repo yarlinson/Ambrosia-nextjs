@@ -1,6 +1,6 @@
 'use client';
 
-import { colorPalettes, tailwindConfigs } from '@/constants/color-palettes';
+import { colorPalettes } from '@/constants/color-palettes';
 
 const ColorPaletteDemo = () => {
   return (
