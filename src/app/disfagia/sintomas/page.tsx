@@ -1,244 +1,289 @@
+import Link from 'next/link';
+
 export default function SintomasDisfagia() {
   const sintomas = [
     {
       id: 1,
-      titulo: "Dificultad para Iniciar la Deglución",
-      descripcion: "Sensación de que los alimentos se 'pegan' en la garganta al intentar tragar",
-      detalles: [
-        "Necesidad de múltiples intentos para tragar",
-        "Sensación de obstrucción en la garganta",
-        "Dificultad para coordinar los músculos de la deglución"
-      ],
-      icono: "🔄",
-      severidad: "Leve a Moderada"
+      titulo: "Rechazo de los alimentos y bebidas",
+      descripcion: "El paciente rechaza alimentos y bebidas que antes consumía normalmente",
+      icono: "🚫",
+      color: "from-red-100 to-red-50",
+      iconColor: "text-red-600"
     },
     {
       id: 2,
-      titulo: "Tos o Ahogo al Comer",
-      descripcion: "Episodios de tos, carraspeo o sensación de ahogo durante las comidas",
-      detalles: [
-        "Tos frecuente al beber líquidos",
-        "Sensación de que la comida 'baja por el lugar equivocado'",
-        "Carraspeo constante durante las comidas"
-      ],
+      titulo: "Tos durante o después de las comidas",
+      descripcion: "Episodios de tos frecuentes durante o después de ingerir alimentos o líquidos",
       icono: "🤧",
-      severidad: "Moderada a Severa"
+      color: "from-orange-100 to-orange-50",
+      iconColor: "text-orange-600"
     },
     {
       id: 3,
-      titulo: "Regurgitación de Alimentos",
-      descripcion: "Los alimentos regresan a la boca o nariz después de tragar",
-      detalles: [
-        "Regurgitación nasal de líquidos",
-        "Sensación de comida atascada en el pecho",
-        "Regreso de alimentos a la boca"
-      ],
-      icono: "↩️",
-      severidad: "Moderada a Severa"
+      titulo: "Atragantamientos al comer",
+      descripcion: "Sensación de ahogo o atragantamiento frecuente durante las comidas",
+      icono: "😰",
+      color: "from-red-100 to-red-50",
+      iconColor: "text-red-600"
     },
     {
       id: 4,
-      titulo: "Dolor al Tragar (Odynofagia)",
-      descripcion: "Dolor agudo o ardor al tragar alimentos o líquidos",
-      detalles: [
-        "Dolor en el pecho al tragar",
-        "Sensación de ardor en la garganta",
-        "Dolor que empeora con alimentos calientes"
-      ],
-      icono: "😣",
-      severidad: "Moderada a Severa"
+      titulo: "Regurgitación nasal",
+      descripcion: "Consiste en el regreso sin esfuerzo del alimento tragado hacia las fosas nasales",
+      icono: "👃",
+      color: "from-yellow-100 to-yellow-50",
+      iconColor: "text-yellow-600"
     },
     {
       id: 5,
-      titulo: "Pérdida de Peso Involuntaria",
-      descripcion: "Reducción de peso debido a la dificultad para comer suficientes alimentos",
-      detalles: [
-        "Disminución del apetito por miedo a tragar",
-        "Evitación de ciertos alimentos",
-        "Reducción en la cantidad de comida consumida"
-      ],
-      icono: "📉",
-      severidad: "Severa"
+      titulo: "Voz húmeda o sensación en la garganta",
+      descripcion: "Después de la deglución, el paciente tiene la voz como húmeda o la sensación de que tiene algo en la garganta",
+      icono: "🗣️",
+      color: "from-blue-100 to-blue-50",
+      iconColor: "text-blue-600"
     },
     {
       id: 6,
-      titulo: "Cambios en la Voz",
-      descripcion: "Voz ronca, húmeda o cambios en el tono después de comer",
-      detalles: [
-        "Voz ronca persistente",
-        "Sonido 'húmedo' al hablar",
-        "Dificultad para hablar después de comer"
-      ],
-      icono: "🗣️",
-      severidad: "Moderada"
+      titulo: "Babeo",
+      descripcion: "Salivación excesiva o dificultad para manejar la saliva",
+      icono: "💧",
+      color: "from-cyan-100 to-cyan-50",
+      iconColor: "text-cyan-600"
     },
     {
       id: 7,
-      titulo: "Salivación Excesiva",
-      descripcion: "Aumento en la producción de saliva o dificultad para manejarla",
-      detalles: [
-        "Babeo frecuente",
-        "Acumulación de saliva en la boca",
-        "Dificultad para tragar la propia saliva"
-      ],
-      icono: "💧",
-      severidad: "Leve a Moderada"
+      titulo: "Sensación de que la comida se pega en la garganta",
+      descripcion: "Sensación persistente de que los alimentos quedan atascados al tragar",
+      icono: "🍽️",
+      color: "from-purple-100 to-purple-50",
+      iconColor: "text-purple-600"
     },
     {
       id: 8,
-      titulo: "Infecciones Respiratorias Frecuentes",
-      descripcion: "Neumonías recurrentes o infecciones pulmonares por aspiración",
-      detalles: [
-        "Fiebre recurrente sin causa aparente",
-        "Tos con expectoración",
-        "Dificultad respiratoria"
-      ],
+      titulo: "Retención del alimento en la boca por periodos prolongados",
+      descripcion: "El paciente mantiene los alimentos en la boca sin deglutir durante mucho tiempo",
+      icono: "⏱️",
+      color: "from-indigo-100 to-indigo-50",
+      iconColor: "text-indigo-600"
+    },
+    {
+      id: 9,
+      titulo: "Dificultad al masticar",
+      descripcion: "Problemas para masticar adecuadamente los alimentos antes de tragar",
+      icono: "🦷",
+      color: "from-green-100 to-green-50",
+      iconColor: "text-green-600"
+    },
+    {
+      id: 10,
+      titulo: "Infecciones respiratorias recurrentes",
+      descripcion: "Neumonías o infecciones pulmonares frecuentes sin causa aparente",
       icono: "🫁",
-      severidad: "Severa"
+      color: "from-red-100 to-red-50",
+      iconColor: "text-red-600"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-yellow-50">
-      {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
-              Síntomas de la <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-yellow-400">
+    <div className="min-h-screen bg-gradient-to-br from-[#FAF8F3] to-[#F9F7F2]">
+      <section className="py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          {/* Breadcrumbs */}
+          <div className="mb-6">
+            <div className="text-sm text-[#6B6B5B]">
+              <Link href="/" className="hover:text-[#E89B5A] transition-colors">Inicio</Link>
+              {' '}»{' '}
+              <Link href="/disfagia" className="hover:text-[#E89B5A] transition-colors">Disfagia</Link>
+              {' '}»{' '}
+              <span className="text-[#4A4A3F] font-medium">Síntomas</span>
+            </div>
+          </div>
+
+          {/* Hero Section */}
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#4A4A3F] mb-4">
+              Síntomas de la <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E89B5A] to-[#D97757]">
                 Disfagia
               </span>
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Reconocer los síntomas de la disfagia es crucial para buscar ayuda temprana y prevenir complicaciones.
+            <p className="text-lg md:text-xl text-[#6B6B5B] max-w-3xl mx-auto leading-relaxed">
+              La aparición de los siguientes síntomas puede sugerir que el paciente sufre disfagia
             </p>
           </div>
 
-          {/* Información General */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-16">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
-              ¿Cuándo Preocuparse?
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-red-50 rounded-lg p-6">
-                <h3 className="text-xl font-semibold text-red-800 mb-4 flex items-center">
-                  <span className="text-2xl mr-3">🚨</span>
-                  Síntomas de Emergencia
-                </h3>
-                <ul className="space-y-2 text-red-700">
-                  <li>• Dificultad para respirar</li>
-                  <li>• Coloración azulada de labios o uñas</li>
-                  <li>• Pérdida de conciencia</li>
-                  <li>• Incapacidad total para tragar</li>
-                </ul>
-                <p className="text-red-600 font-semibold mt-4">
-                  ⚠️ Buscar atención médica inmediata
-                </p>
-              </div>
-              
-              <div className="bg-amber-50 rounded-lg p-6">
-                <h3 className="text-xl font-semibold text-amber-800 mb-4 flex items-center">
-                  <span className="text-2xl mr-3">⚠️</span>
-                  Síntomas que Requieren Evaluación
-                </h3>
-                <ul className="space-y-2 text-amber-700">
-                  <li>• Tos frecuente al comer</li>
-                  <li>• Pérdida de peso involuntaria</li>
-                  <li>• Dificultad para tragar sólidos</li>
-                  <li>• Sensación de obstrucción</li>
-                </ul>
-                <p className="text-amber-600 font-semibold mt-4">
-                  📞 Consultar con especialista
+          {/* Alerta importante */}
+          <div className="bg-gradient-to-r from-[#E89B5A] to-[#D97757] rounded-xl p-6 mb-12 text-white">
+            <div className="flex items-start space-x-4">
+              <div className="text-3xl">⚠️</div>
+              <div>
+                <h2 className="text-xl font-bold mb-2">Importante</h2>
+                <p className="text-white/95">
+                  Si detecta alguno de estos síntomas, consulte con un especialista.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Lista de Síntomas Detallados */}
-          <div className="space-y-8">
-            <h2 className="text-3xl font-bold text-gray-800 text-center mb-12">
-              Síntomas Detallados de la Disfagia
-            </h2>
-            
+          {/* Grid de Síntomas */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {sintomas.map((sintoma) => (
-              <div key={sintoma.id} className="bg-white rounded-2xl shadow-xl overflow-hidden">
-                <div className="p-8">
-                  <div className="flex items-start space-x-6">
-                    <div className="w-16 h-16 bg-gradient-to-r from-amber-500 to-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-white text-2xl">{sintoma.icono}</span>
-                    </div>
-                    
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-4">
-                        <h3 className="text-2xl font-bold text-gray-800">
-                          {sintoma.titulo}
-                        </h3>
-                        <span className={`px-3 py-1 rounded-full text-sm font-semibold ${
-                          sintoma.severidad === 'Leve a Moderada' 
-                            ? 'bg-green-100 text-green-800'
-                            : sintoma.severidad === 'Moderada'
-                            ? 'bg-yellow-100 text-yellow-800'
-                            : 'bg-red-100 text-red-800'
-                        }`}>
-                          {sintoma.severidad}
-                        </span>
-                      </div>
-                      
-                      <p className="text-gray-600 text-lg mb-4">
-                        {sintoma.descripcion}
-                      </p>
-                      
-                      <div className="bg-gray-50 rounded-lg p-4">
-                        <h4 className="font-semibold text-gray-800 mb-3">Manifestaciones específicas:</h4>
-                        <ul className="space-y-1">
-                          {sintoma.detalles.map((detalle, index) => (
-                            <li key={index} className="text-gray-600 flex items-start">
-                              <span className="text-amber-500 mr-2">•</span>
-                              {detalle}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+              <div 
+                key={sintoma.id}
+                className={`bg-gradient-to-br ${sintoma.color} rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1`}
+              >
+                <div className={`text-4xl mb-4 ${sintoma.iconColor}`}>
+                  {sintoma.icono}
                 </div>
+                <h3 className="text-lg font-bold text-[#4A4A3F] mb-2">
+                  {sintoma.titulo}
+                </h3>
+                <p className="text-[#6B6B5B] text-sm leading-relaxed">
+                  {sintoma.descripcion}
+                </p>
               </div>
             ))}
           </div>
 
-          {/* Recomendaciones */}
-          <div className="mt-16 bg-gradient-to-r from-amber-500 to-yellow-400 rounded-2xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-6 text-center">
-              ¿Experimentas Alguno de Estos Síntomas?
-            </h3>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h4 className="text-xl font-semibold mb-4">Pasos Inmediatos:</h4>
-                <ul className="space-y-2">
-                  <li>• Consulta con tu médico de cabecera</li>
-                  <li>• Solicita evaluación por un logopeda</li>
-                  <li>• Considera una evaluación nutricional</li>
-                  <li>• Documenta la frecuencia de los síntomas</li>
-                </ul>
+          {/* Complicaciones */}
+          <div className="mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#4A4A3F] mb-8 text-center">
+              ¿Qué complicaciones puede causar la disfagia?
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Riesgo de aspiración */}
+              <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-red-500">
+                <div className="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-red-600 text-2xl">🫁</span>
+                </div>
+                <h3 className="text-xl font-bold text-[#4A4A3F] mb-3">
+                  Riesgo de aspiración
+                </h3>
+                <p className="text-[#6B6B5B] text-sm leading-relaxed">
+                  Los <strong>alimentos o bebidas se "vayan por otro lado", hacia los pulmones</strong> y se generen infecciones. 
+                  Este efecto se denomina aspiración.
+                </p>
               </div>
-              <div>
-                <h4 className="text-xl font-semibold mb-4">En Ambrosia Podemos Ayudarte:</h4>
-                <ul className="space-y-2">
-                  <li>• Menús adaptados a tus necesidades</li>
-                  <li>• Asesoramiento nutricional especializado</li>
-                  <li>• Recetas seguras y nutritivas</li>
-                  <li>• Apoyo para toda la familia</li>
-                </ul>
+
+              {/* Riesgo de deshidratación */}
+              <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-500">
+                <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-blue-600 text-2xl">💧</span>
+                </div>
+                <h3 className="text-xl font-bold text-[#4A4A3F] mb-3">
+                  Riesgo de deshidratación
+                </h3>
+                <p className="text-[#6B6B5B] text-sm leading-relaxed">
+                  Los pacientes <strong>tienden a no beber lo suficiente</strong> por miedo a atragantarse.
+                </p>
+              </div>
+
+              {/* Riesgo de desnutrición */}
+              <div className="bg-white rounded-xl shadow-lg p-6 border-l-4 border-orange-500">
+                <div className="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-orange-600 text-2xl">📉</span>
+                </div>
+                <h3 className="text-xl font-bold text-[#4A4A3F] mb-3">
+                  Riesgo de desnutrición
+                </h3>
+                <p className="text-[#6B6B5B] text-sm leading-relaxed">
+                  Los pacientes <strong>comen menos</strong> y <strong>esto les lleva a perder peso</strong>.
+                </p>
               </div>
             </div>
-            
-            <div className="text-center mt-8">
-              <button className="bg-white text-amber-600 px-8 py-3 rounded-lg font-semibold hover:bg-amber-50 transition-all duration-300 mr-4">
-                Consultar Menús Adaptados
-              </button>
-              <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-all duration-300">
-                Hablar con un Experto
-              </button>
+          </div>
+
+          {/* Solución */}
+          <div className="bg-gradient-to-br from-white to-[#FAF8F3] rounded-2xl shadow-xl p-8 md:p-10 mb-12 border-l-4 border-[#9CAF88]">
+            <div className="flex items-start space-x-4">
+              <div className="w-16 h-16 bg-gradient-to-r from-[#9CAF88] to-[#8FA882] rounded-full flex items-center justify-center flex-shrink-0">
+                <span className="text-white text-2xl">💡</span>
+              </div>
+              <div>
+                <h2 className="text-2xl md:text-3xl font-bold text-[#4A4A3F] mb-4">
+                  ¿Qué puedo hacer?
+                </h2>
+                <div className="space-y-4 text-[#6B6B5B] leading-relaxed">
+                  <p>
+                    Su especialista le ha recomendado <strong className="text-[#4A4A3F]">adaptar la textura de sus alimentos y bebidas</strong> a la 
+                    viscosidad que considera más segura para usted.
+                  </p>
+                  <p>
+                    Así se podrá evitar que los alimentos y bebidas pasen a las vías respiratorias y usted se sentirá más seguro y no rechazará 
+                    las comidas evitando el potencial riesgo de desnutrición.
+                  </p>
+                  <p>
+                    También le habrá recomendado una serie de <strong className="text-[#4A4A3F]">posturas y hábitos</strong> que le facilitarán poder 
+                    tragar alimentos y bebidas de una forma más segura.
+                  </p>
+                </div>
+                <div className="mt-6">
+                  <p className="text-sm text-[#6B6B5B] italic">
+                    El tratamiento nutricional puede contribuir significativamente a la seguridad y la calidad de vida de los pacientes con disfagia.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Recursos Adicionales */}
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold text-[#4A4A3F] mb-8 text-center">
+              Más recursos de tu interés
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Link 
+                href="/disfagia/que-es"
+                className="group bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="w-16 h-16 bg-gradient-to-r from-[#E89B5A] to-[#D97757] rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <span className="text-white text-2xl">📋</span>
+                </div>
+                <h3 className="text-xl font-bold text-[#4A4A3F] mb-2 group-hover:text-[#E89B5A] transition-colors">
+                  ¿Qué es la Disfagia?
+                </h3>
+                <p className="text-[#6B6B5B] text-sm">
+                  Qué es la disfagia y por qué se produce
+                </p>
+                <div className="mt-4 text-[#E89B5A] font-semibold text-sm group-hover:translate-x-2 transition-transform inline-flex items-center">
+                  Ver más →
+                </div>
+              </Link>
+
+              <Link 
+                href="/tratamientos/como-se-trata"
+                className="group bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="w-16 h-16 bg-gradient-to-r from-[#9CAF88] to-[#8FA882] rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <span className="text-white text-2xl">💊</span>
+                </div>
+                <h3 className="text-xl font-bold text-[#4A4A3F] mb-2 group-hover:text-[#9CAF88] transition-colors">
+                  Tratamientos
+                </h3>
+                <p className="text-[#6B6B5B] text-sm">
+                  Qué tratamientos son adecuados para la disfagia
+                </p>
+                <div className="mt-4 text-[#9CAF88] font-semibold text-sm group-hover:translate-x-2 transition-transform inline-flex items-center">
+                  Ver más →
+                </div>
+              </Link>
+
+              <Link 
+                href="/about"
+                className="group bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="w-16 h-16 bg-gradient-to-r from-[#E89B5A] to-[#D97757] rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <span className="text-white text-2xl">💡</span>
+                </div>
+                <h3 className="text-xl font-bold text-[#4A4A3F] mb-2 group-hover:text-[#E89B5A] transition-colors">
+                  Consejos
+                </h3>
+                <p className="text-[#6B6B5B] text-sm">
+                  Trucos, consejos y recomendaciones útiles para la persona con disfagia
+                </p>
+                <div className="mt-4 text-[#E89B5A] font-semibold text-sm group-hover:translate-x-2 transition-transform inline-flex items-center">
+                  Ver más →
+                </div>
+              </Link>
             </div>
           </div>
         </div>

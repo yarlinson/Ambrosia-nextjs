@@ -98,15 +98,16 @@ npm start
 
 ## 🎨 **Paleta de Colores**
 
-### **Colores Principales**
-- **Amarillo vibrante**: `#F4D03F` (Logo principal)
-- **Ámbar**: `#F39C12` (Gradientes y acentos)
-- **Gris oscuro**: `#2C3E50` (Texto y contraste)
+### **Colores Principales (Nuevo Logo)**
+- **Naranja cálido/dorado**: `#E89B5A` (Color principal del logo)
+- **Naranja cálido**: `#D97757` (Variación más oscura)
+- **Verde apagado/sage**: `#9CAF88` (Color secundario del logo)
 
 ### **Colores Secundarios**
-- **Gris medio**: `#5D6D7E` (Texto secundario)
-- **Gris claro**: `#E9ECEF` (Fondos)
-- **Blanco**: `#FFFFFF` (Contraste)
+- **Crema claro**: `#FAF8F3` (Fondo del logo)
+- **Verde muted**: `#8FA882` (Verde más apagado)
+- **Gris cálido**: `#4A4A3F` (Texto y contraste)
+- **Gris medio**: `#6B6B5B` (Texto secundario)
 
 ## 📱 **Páginas Implementadas**
 

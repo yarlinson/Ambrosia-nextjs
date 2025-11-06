@@ -1,13 +1,13 @@
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-yellow-50">
+    <div className="min-h-screen bg-gradient-to-br from-[#FAF8F3] to-[#F9F7F2]">
       {/* Hero Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
               Bienvenidos a{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-yellow-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E89B5A] to-[#D97757]">
                 Ambrosia
               </span>
             </h1>
@@ -16,10 +16,10 @@ export default function Home() {
               garantizando que los alimentos sean seguros, nutritivos y agradables visualmente.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-amber-500 to-yellow-400 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+              <button className="bg-gradient-to-r from-[#E89B5A] to-[#D97757] text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
                 Ver Menú
               </button>
-              <button className="border-2 border-amber-500 text-amber-600 px-8 py-3 rounded-lg font-semibold hover:bg-amber-50 transition-all duration-300">
+              <button className="border-2 border-[#E89B5A] text-[#E89B5A] px-8 py-3 rounded-lg font-semibold hover:bg-[#FAF8F3] transition-all duration-300">
                 Guía IDDSI
               </button>
             </div>
@@ -34,8 +34,8 @@ export default function Home() {
             Nuestros Servicios
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-6 rounded-lg bg-gradient-to-br from-amber-50 to-yellow-50">
-              <div className="w-16 h-16 bg-gradient-to-r from-amber-500 to-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center p-6 rounded-lg bg-gradient-to-br from-[#FAF8F3] to-[#F5F3ED]">
+              <div className="w-16 h-16 bg-gradient-to-r from-[#E89B5A] to-[#D97757] rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white text-2xl">🍽️</span>
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-2">Menús IDDSI</h3>
@@ -43,8 +43,8 @@ export default function Home() {
                 Alimentos adaptados según los 8 niveles IDDSI para garantizar seguridad y nutrición.
               </p>
             </div>
-            <div className="text-center p-6 rounded-lg bg-gradient-to-br from-amber-50 to-yellow-50">
-              <div className="w-16 h-16 bg-gradient-to-r from-amber-500 to-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center p-6 rounded-lg bg-gradient-to-br from-[#FAF8F3] to-[#F5F3ED]">
+              <div className="w-16 h-16 bg-gradient-to-r from-[#E89B5A] to-[#D97757] rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white text-2xl">👥</span>
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-2">Inclusión Social</h3>
@@ -52,8 +52,8 @@ export default function Home() {
                 Permitiendo que las familias disfruten juntas del acto de comer sin riesgo ni vergüenza.
               </p>
             </div>
-            <div className="text-center p-6 rounded-lg bg-gradient-to-br from-amber-50 to-yellow-50">
-              <div className="w-16 h-16 bg-gradient-to-r from-amber-500 to-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-center p-6 rounded-lg bg-gradient-to-br from-[#FAF8F3] to-[#F5F3ED]">
+              <div className="w-16 h-16 bg-gradient-to-r from-[#E89B5A] to-[#D97757] rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-white text-2xl">❤️</span>
               </div>
               <h3 className="text-xl font-semibold text-gray-800 mb-2">Cuidado Especializado</h3>

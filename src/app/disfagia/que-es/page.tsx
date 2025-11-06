@@ -1,149 +1,313 @@
+import Link from 'next/link';
+
 export default function QueEsDisfagia() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-yellow-50">
-      {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
-              ¿Qué es la <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-yellow-400">
-                Disfagia
+    <div className="min-h-screen bg-gradient-to-br from-[#FAF8F3] to-[#F9F7F2]">
+      <section className="py-8 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          {/* Breadcrumbs */}
+          <div className="mb-6">
+            <div className="text-sm text-[#6B6B5B]">
+              <Link href="/" className="hover:text-[#E89B5A] transition-colors">Inicio</Link>
+              {' '}»{' '}
+              <Link href="/disfagia" className="hover:text-[#E89B5A] transition-colors">Disfagia</Link>
+              {' '}»{' '}
+              <span className="text-[#4A4A3F] font-medium">¿Qué es?</span>
+            </div>
+          </div>
+
+          {/* Hero Section */}
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#4A4A3F] mb-4">
+              ¿Qué es <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E89B5A] to-[#D97757]">
+                la Disfagia
               </span>?
             </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              La disfagia es una condición que afecta la capacidad de tragar alimentos y líquidos de manera segura y eficiente.
+            <p className="text-lg md:text-xl text-[#6B6B5B] max-w-3xl mx-auto leading-relaxed">
+              ¿Te han diagnosticado disfagia y necesitas entender qué es?, ¿cuáles son sus síntomas? o ¿cómo se trata?
             </p>
           </div>
 
-          {/* Video Section */}
+          {/* Video Destacado */}
           <div className="mb-16">
-            <div className="bg-white rounded-2xl shadow-xl p-8">
-              <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">
-                Video Explicativo sobre Disfagia
-              </h2>
-              <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://www.youtube.com/embed/9F39UlTKHcY?si=uxC0_hz5Uvrf1J_I"
-                  title="¿Qué es la Disfagia? - Video Explicativo"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full"
-                ></iframe>
+            <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+              <div className="bg-gradient-to-r from-[#E89B5A] to-[#D97757] p-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                    <span className="text-white text-xl">▶️</span>
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-bold text-white">Video Explicativo</h2>
+                    <p className="text-white/90 text-sm">Respuestas en 2 minutos</p>
+                  </div>
+                </div>
+              </div>
+              <div className="p-6">
+                <p className="text-[#6B6B5B] mb-4 text-center">
+                  Entiende de manera rápida y sencilla qué es la disfagia, su tratamiento, tipos y síntomas
+                </p>
+                <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
+                  <video 
+                    controls 
+                    className="w-full h-full"
+                    poster="/video-poster.jpg"
+                  >
+                    <source src="https://disfagia-nutricion.es/wp-content/uploads/2020/Disfagia_sin_Lares.mp4" type="video/mp4" />
+                    Tu navegador no soporta la reproducción de video.
+                  </video>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Definición Detallada */}
-          <div className="grid lg:grid-cols-2 gap-12 mb-16">
-            <div className="bg-white rounded-2xl shadow-xl p-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">
-                Definición Médica
+          {/* Definición Principal - Destacada */}
+          <div className="mb-12">
+            <div className="bg-gradient-to-br from-white to-[#FAF8F3] rounded-2xl shadow-xl p-8 md:p-10 border-l-4 border-[#E89B5A]">
+              <div className="flex items-start space-x-4 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-[#E89B5A] to-[#D97757] rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-white text-2xl">📋</span>
+                </div>
+                <div>
+                  <h2 className="text-3xl md:text-4xl font-bold text-[#4A4A3F] mb-3">
+                    ¿Qué es la disfagia?
+                  </h2>
+                  <p className="text-lg text-[#6B6B5B] leading-relaxed">
+                    La disfagia es un <strong className="text-[#4A4A3F]">síntoma común de muchas enfermedades</strong> y significa que usted podría tener 
+                    dificultades para trasladar de manera segura el bolo alimenticio desde la boca hasta el estómago.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Información Importante - 3 Columnas */}
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
+            {/* Broncoaspiración */}
+            <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+              <div className="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                <span className="text-red-600 text-2xl">⚠️</span>
+              </div>
+              <h3 className="text-xl font-bold text-[#4A4A3F] mb-3">
+                La broncoaspiración
               </h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                La disfagia es un trastorno de la deglución que puede afectar cualquier parte del proceso de tragar, 
-                desde la boca hasta el estómago. Puede ser temporal o permanente, y su gravedad varía desde 
-                dificultades leves hasta la imposibilidad total de tragar.
+              <p className="text-[#6B6B5B] text-sm leading-relaxed mb-3">
+                <strong>El principal riesgo de la disfagia</strong> es la broncoaspiración. La sensación es como si la comida/bebida se fuera por otro lado.
               </p>
-              <div className="bg-amber-50 rounded-lg p-6">
-                <h4 className="font-semibold text-amber-800 mb-3">Tipos de Disfagia:</h4>
-                <ul className="space-y-2 text-amber-700">
-                  <li>• <strong>Disfagia orofaríngea:</strong> Dificultad en la fase inicial de la deglución</li>
-                  <li>• <strong>Disfagia esofágica:</strong> Problemas en el paso del alimento por el esófago</li>
-                  <li>• <strong>Disfagia funcional:</strong> Sin causa orgánica aparente</li>
-                </ul>
+              <div className="bg-red-50 rounded-lg p-3 mt-4">
+                <p className="text-red-800 text-xs font-semibold">
+                  El alimento pasa al tracto respiratorio en lugar del digestivo, pudiendo provocar infecciones respiratorias.
+                </p>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl shadow-xl p-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-6">
-                Impacto en la Vida Diaria
+            {/* Aspiraciones Silentes */}
+            <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+              <div className="w-14 h-14 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+                <span className="text-yellow-600 text-2xl">🔇</span>
+              </div>
+              <h3 className="text-xl font-bold text-[#4A4A3F] mb-3">
+                Aspiraciones Silentes
               </h3>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-xl">🍽️</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">Alimentación</h4>
-                    <p className="text-gray-600">Dificultad para comer alimentos sólidos, líquidos o ambos</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-xl">😰</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">Ansiedad Social</h4>
-                    <p className="text-gray-600">Miedo a comer en público o con familiares</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gradient-to-r from-amber-500 to-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-white text-xl">🏥</span>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-2">Complicaciones</h4>
-                    <p className="text-gray-600">Riesgo de neumonía por aspiración y desnutrición</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Estadísticas y Datos */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-16">
-            <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
-              Datos Importantes sobre la Disfagia
-            </h3>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-amber-500 to-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white text-2xl font-bold">15%</span>
-                </div>
-                <h4 className="font-semibold text-gray-800 mb-2">Adultos Mayores</h4>
-                <p className="text-gray-600 text-sm">de las personas mayores de 65 años experimentan disfagia</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-amber-500 to-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white text-2xl font-bold">50%</span>
-                </div>
-                <h4 className="font-semibold text-gray-800 mb-2">Post-Ictus</h4>
-                <p className="text-gray-600 text-sm">de los pacientes que han sufrido un ictus desarrollan disfagia</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-20 h-20 bg-gradient-to-r from-amber-500 to-yellow-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white text-2xl font-bold">80%</span>
-                </div>
-                <h4 className="font-semibold text-gray-800 mb-2">Mejora</h4>
-                <p className="text-gray-600 text-sm">de los casos mejoran con el tratamiento adecuado</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Call to Action */}
-          <div className="text-center">
-            <div className="bg-gradient-to-r from-amber-500 to-yellow-400 rounded-2xl p-8 text-white">
-              <h3 className="text-2xl font-bold mb-4">
-                ¿Necesitas Ayuda con la Disfagia?
-              </h3>
-              <p className="text-xl mb-6 opacity-90">
-                En Ambrosia, entendemos las necesidades especiales de las personas con disfagia
+              <p className="text-[#6B6B5B] text-sm leading-relaxed mb-3">
+                En algunos casos la disfagia <strong>no presenta síntomas de atragantamiento</strong>, produciendo aspiraciones silentes.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-white text-amber-600 px-8 py-3 rounded-lg font-semibold hover:bg-amber-50 transition-all duration-300">
-                  Ver Síntomas
-                </button>
-                <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-all duration-300">
-                  Consultar Menús
-                </button>
+              <div className="bg-yellow-50 rounded-lg p-3 mt-4">
+                <p className="text-yellow-800 text-xs font-semibold">
+                  Es muy importante seguir las recomendaciones de su especialista en todo momento.
+                </p>
               </div>
+            </div>
+
+            {/* Líquidos y Sólidos */}
+            <div className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow">
+              <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                <span className="text-blue-600 text-2xl">💧</span>
+              </div>
+              <h3 className="text-xl font-bold text-[#4A4A3F] mb-3">
+                Líquidos y sólidos
+              </h3>
+              <p className="text-[#6B6B5B] text-sm leading-relaxed mb-3">
+                <strong>Tragar líquidos es más complicado</strong> que alimentos sólidos ya que se esparcen por toda la boca.
+              </p>
+              <div className="bg-blue-50 rounded-lg p-3 mt-4">
+                <p className="text-blue-800 text-xs font-semibold">
+                  El sistema deglutorio tiene menos tiempo para prepararse con líquidos.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Causas de la Disfagia */}
+          <div className="mb-12">
+            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10">
+              <div className="flex items-center space-x-4 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-[#9CAF88] to-[#8FA882] rounded-full flex items-center justify-center">
+                  <span className="text-white text-2xl">🔍</span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-[#4A4A3F]">
+                  ¿Cuáles son las causas de la disfagia?
+                </h2>
+              </div>
+
+              {/* Estadística Destacada */}
+              <div className="bg-gradient-to-r from-[#E89B5A] to-[#D97757] rounded-xl p-6 mb-8 text-white">
+                <div className="flex items-center space-x-4">
+                  <div className="text-5xl font-bold">50%</div>
+                  <div>
+                    <p className="text-xl font-semibold">Casos de Ictus</p>
+                    <p className="text-white/90">tendrán problemas de disfagia</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8 mb-6">
+                {/* Enfermedades */}
+                <div>
+                  <h3 className="text-xl font-bold text-[#4A4A3F] mb-4 flex items-center">
+                    <span className="mr-2">🏥</span>
+                    Enfermedades relacionadas
+                  </h3>
+                  <p className="text-[#6B6B5B] mb-4 leading-relaxed">
+                    Puede ser consecuencia de otras muchas enfermedades o condiciones:
+                  </p>
+                  <div className="grid grid-cols-2 gap-2">
+                    {['Demencias', 'Enfermedad de Parkinson', 'Enfermedad de Alzheimer', 'Esclerosis múltiple', 'Cáncer de cabeza/cuello'].map((enfermedad, idx) => (
+                      <div key={idx} className="flex items-center space-x-2 bg-[#FAF8F3] rounded-lg p-2">
+                        <span className="text-[#E89B5A]">•</span>
+                        <span className="text-sm text-[#6B6B5B]">{enfermedad}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Factores de Edad */}
+                <div>
+                  <h3 className="text-xl font-bold text-[#4A4A3F] mb-4 flex items-center">
+                    <span className="mr-2">👴</span>
+                    Factores de edad
+                  </h3>
+                  <p className="text-[#6B6B5B] mb-4 leading-relaxed">
+                    <strong>Entre el 40 al 50% de ancianos</strong> sufrirán disfagia debido a:
+                  </p>
+                  <ul className="space-y-2">
+                    {[
+                      'Ausencia de dientes',
+                      'Mala adaptación de dentadura postiza',
+                      'Baja producción de saliva',
+                      'Lesiones en lengua o encías',
+                      'Sarcopenia o pérdida de masa muscular'
+                    ].map((factor, idx) => (
+                      <li key={idx} className="flex items-start space-x-2">
+                        <span className="text-[#E89B5A] mt-1">✓</span>
+                        <span className="text-[#6B6B5B] text-sm">{factor}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* Referencias */}
+              <div className="bg-gradient-to-br from-[#FAF8F3] to-[#F5F3ED] rounded-lg p-4 text-xs text-[#6B6B5B]">
+                <p className="mb-2">
+                  <strong>¹</strong> Bray BD, Smith, Cloud G, EnderbyP, James M, Paleyet L et al. The association between delays in screening for and assesing 
+                  dysphagia after acute stroke, and the risk of stroke associated pneumonía. J Neurol Neurosug Psychiatry 2016;0:1-6
+                </p>
+                <p>
+                  <strong>²</strong> D. Gómez-Nussbaumer, E. Polanía Protocolo diagnóstico de la disfagia en el anciano. Medicine 2016;12:46-48
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Cómo Afecta */}
+          <div className="mb-12">
+            <div className="bg-gradient-to-br from-white via-[#FAF8F3] to-white rounded-2xl shadow-xl p-8 md:p-10">
+              <div className="flex items-start space-x-4 mb-6">
+                <div className="w-16 h-16 bg-gradient-to-r from-[#E89B5A] to-[#D97757] rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-white text-2xl">⚡</span>
+                </div>
+                <div>
+                  <h2 className="text-3xl md:text-4xl font-bold text-[#4A4A3F] mb-4">
+                    ¿Cómo afecta la disfagia a la capacidad de tragar?
+                  </h2>
+                  <div className="space-y-4">
+                    <div className="bg-white rounded-lg p-4 border-l-4 border-[#E89B5A]">
+                      <p className="text-[#6B6B5B] leading-relaxed">
+                        Produce un <strong className="text-[#4A4A3F]">debilitamiento o descoordinación de los músculos</strong> de la boca y/o lengua 
+                        que aumenta el riesgo de que la comida o bebida se vaya hacia los pulmones, originando infecciones.
+                      </p>
+                    </div>
+                    <div className="bg-white rounded-lg p-4 border-l-4 border-[#9CAF88]">
+                      <p className="text-[#6B6B5B] leading-relaxed">
+                        El <strong className="text-[#4A4A3F]">miedo a atragantarse</strong> puede generar un rechazo a los alimentos y bebidas que puede 
+                        conducirles a un estado de <strong className="text-[#4A4A3F]">desnutrición y/o deshidratación</strong>, que no favorecerá su recuperación.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Recursos Adicionales */}
+          <div className="mb-12">
+            <h2 className="text-3xl font-bold text-[#4A4A3F] mb-8 text-center">
+              Más recursos de tu interés
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              <Link 
+                href="/disfagia/sintomas"
+                className="group bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="w-16 h-16 bg-gradient-to-r from-[#E89B5A] to-[#D97757] rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <span className="text-white text-2xl">⚠️</span>
+                </div>
+                <h3 className="text-xl font-bold text-[#4A4A3F] mb-2 group-hover:text-[#E89B5A] transition-colors">
+                  Síntomas
+                </h3>
+                <p className="text-[#6B6B5B] text-sm">
+                  Comportamientos y reacciones que pueden alertar sobre un caso de disfagia
+                </p>
+                <div className="mt-4 text-[#E89B5A] font-semibold text-sm group-hover:translate-x-2 transition-transform inline-flex items-center">
+                  Ver más →
+                </div>
+              </Link>
+
+              <Link 
+                href="/tratamientos/como-se-trata"
+                className="group bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="w-16 h-16 bg-gradient-to-r from-[#9CAF88] to-[#8FA882] rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <span className="text-white text-2xl">💊</span>
+                </div>
+                <h3 className="text-xl font-bold text-[#4A4A3F] mb-2 group-hover:text-[#9CAF88] transition-colors">
+                  Tratamientos
+                </h3>
+                <p className="text-[#6B6B5B] text-sm">
+                  Qué tratamientos son adecuados para la disfagia
+                </p>
+                <div className="mt-4 text-[#9CAF88] font-semibold text-sm group-hover:translate-x-2 transition-transform inline-flex items-center">
+                  Ver más →
+                </div>
+              </Link>
+
+              <Link 
+                href="/about"
+                className="group bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="w-16 h-16 bg-gradient-to-r from-[#E89B5A] to-[#D97757] rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <span className="text-white text-2xl">💡</span>
+                </div>
+                <h3 className="text-xl font-bold text-[#4A4A3F] mb-2 group-hover:text-[#E89B5A] transition-colors">
+                  Consejos
+                </h3>
+                <p className="text-[#6B6B5B] text-sm">
+                  Trucos, consejos y recomendaciones útiles para la persona con disfagia
+                </p>
+                <div className="mt-4 text-[#E89B5A] font-semibold text-sm group-hover:translate-x-2 transition-transform inline-flex items-center">
+                  Ver más →
+                </div>
+              </Link>
             </div>
           </div>
         </div>
