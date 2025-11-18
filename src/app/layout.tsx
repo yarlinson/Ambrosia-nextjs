@@ -33,7 +33,7 @@ export default function RootLayout({
         <AuthProviderWrapper>
           <Header />
           <main className="pt-24">
-            {children}
+        {children}
           </main>
           <Footer />
         </AuthProviderWrapper>

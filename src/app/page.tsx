@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#FAF8F3] to-[#F9F7F2]">
@@ -16,9 +18,12 @@ export default function Home() {
               garantizando que los alimentos sean seguros, nutritivos y agradables visualmente.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-[#E89B5A] to-[#D97757] text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+              <Link 
+                href="/planes"
+                className="bg-gradient-to-r from-[#E89B5A] to-[#D97757] text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 text-center"
+              >
                 Ver Menú
-              </button>
+              </Link>
               <button className="border-2 border-[#E89B5A] text-[#E89B5A] px-8 py-3 rounded-lg font-semibold hover:bg-[#FAF8F3] transition-all duration-300">
                 Guía IDDSI
               </button>
