@@ -46,7 +46,7 @@ export default function AlimentosRiesgo() {
       categoria: "Alimentos duros",
       ejemplos: ["Frutos secos enteros", "Pan de cereales", "Verduras crudas"],
       icono: "🥜",
-      color: "from-brown-100 to-brown-50",
+      color: "from-amber-200 to-amber-50",
       iconColor: "text-amber-700",
       riesgo: "Muy Alto"
     },

@@ -109,6 +109,10 @@ export default function SintomasDisfagia() {
             <p className="text-lg md:text-xl text-[#6B6B5B] max-w-3xl mx-auto leading-relaxed">
               La aparición de los siguientes síntomas puede sugerir que el paciente sufre disfagia
             </p>
+            <p className="text-base text-[#6B6B5B] max-w-4xl mx-auto mt-4 leading-relaxed">
+              Los síntomas de la disfagia incluyen la sensación de que la comida se queda atascada en la garganta o el pecho, dolor al tragar, tos o ahogos al tragar, regurgitación de alimentos, pérdida de peso y ronquera. 
+              Otros signos pueden ser el babeo, la acidez estomacal frecuente y el rechazo a ciertos alimentos por miedo a atragantarse.
+            </p>
           </div>
 
           {/* Alerta importante */}

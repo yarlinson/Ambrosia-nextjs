@@ -72,8 +72,8 @@ export default function QueEsDisfagia() {
                     ¿Qué es la disfagia?
                   </h2>
                   <p className="text-lg text-[#6B6B5B] leading-relaxed">
-                    La disfagia es un <strong className="text-[#4A4A3F]">síntoma común de muchas enfermedades</strong> y significa que usted podría tener 
-                    dificultades para trasladar de manera segura el bolo alimenticio desde la boca hasta el estómago.
+                    <strong className="text-[#4A4A3F]">La disfagia es la dificultad que presenta una persona para tragar los alimentos o líquidos.</strong> En algunos casos puede generar dolor, y en situaciones más severas, puede llegar a imposibilitar la deglución. 
+                    Puede manifestarse a cualquier edad, pero es más común en adultos mayores. Las causas de los problemas de deglución varían y el tratamiento dependerá de la causa que la origine.
                   </p>
                 </div>
               </div>
