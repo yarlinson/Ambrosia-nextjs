@@ -22,7 +22,7 @@ export default function Home() {
                 href="/planes"
                 className="bg-gradient-to-r from-[#E89B5A] to-[#D97757] text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 text-center"
               >
-                Ver Menú
+                Ver Planes
               </Link>
               <button className="border-2 border-[#E89B5A] text-[#E89B5A] px-8 py-3 rounded-lg font-semibold hover:bg-[#FAF8F3] transition-all duration-300">
                 Guía IDDSI

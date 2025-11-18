@@ -18,6 +18,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Ambrosia - Restaurante Especializado en IDDSI",
   description: "Restaurante especializado en menús adaptados según las guías IDDSI, enfocado en la inclusión social de personas con disfagia.",
+  icons: {
+    icon: '/LogoNuevo.png',
+    shortcut: '/LogoNuevo.png',
+    apple: '/LogoNuevo.png',
+  },
 };
 
 export default function RootLayout({
