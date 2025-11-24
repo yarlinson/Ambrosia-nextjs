@@ -29,6 +29,27 @@ const anexos = [
     file: "/docs/DISFAGIA EN PACIENTES NEUROLOGICOS.pdf",
     icon: "🧬",
   },
+  {
+    title: "Portafolio de Servicios Ambrosia",
+    description:
+      "Conoce nuestros servicios integrales de alimentación segura, planes personalizados, acompañamiento profesional y productos especializados para personas con disfagia.",
+    file: "/docs/PORTAFOLIO DE SERVICIOS AMBROSIA .pdf-1.pdf",
+    icon: "📋",
+  },
+  {
+    title: "Ficha Técnica Ambrosia",
+    description:
+      "Modelo de atención integral para personas con disfagia. Especificaciones técnicas, características del servicio y protocolos de seguridad alimentaria.",
+    file: "/docs/Ficha técnica Ambrosia .pdf",
+    icon: "📄",
+  },
+  {
+    title: "Guía de Manipulación de Alimentos",
+    description:
+      "Protocolos de inocuidad alimentaria, estándares IDDSI, temperaturas seguras y buenas prácticas para la preparación y manipulación de alimentos adaptados.",
+    file: "/docs/GUIA DE MANIPULACION DE ALIMENTOS_AMBROSIA.pdf",
+    icon: "🍽️",
+  },
 ];
 
 export default function AnexosPage() {
