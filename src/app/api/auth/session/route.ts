@@ -23,18 +23,24 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({ user: null });
       }
 
-      // Obtener información adicional del usuario
+      // Obtener información adicional del usuario (si existe)
       const { data: userData } = await supabase
         .from('preinscripciones')
         .select('*')
-        .eq('email', authUser.email)
-        .single();
+        .ilike('email', authUser.email || '')
+        .limit(1)
+        .maybeSingle();
+
+      const metadata = authUser.user_metadata as
+        | { nombre_completo?: string; telefono?: string }
+        | undefined;
 
       const user = {
         id: authUser.id,
         email: authUser.email || '',
-        nombreCompleto: userData?.nombre_completo || null,
-        telefono: userData?.telefono || null,
+        nombreCompleto:
+          userData?.nombre_completo || metadata?.nombre_completo || null,
+        telefono: userData?.telefono || metadata?.telefono || null,
         condicionPaciente: userData?.condicion_paciente || null,
         nivelIddsi: userData?.nivel_iddsi || null,
         planSeleccionado: userData?.plan_seleccionado || null,

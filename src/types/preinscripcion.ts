@@ -6,6 +6,8 @@ export interface PreinscripcionData {
   nivelIddsi?: string;
   observaciones?: string;
   planSeleccionado?: string;
+  password: string;
+  confirmPassword: string;
 }
 
 export interface PreinscripcionResponse {

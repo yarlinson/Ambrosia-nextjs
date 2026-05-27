@@ -33,18 +33,25 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      // Obtener información del usuario desde la tabla de preinscripciones
-      const { data: userData, error: userError } = await supabase
+      // Intentar recuperar perfil extendido de preinscripciones.
+      // Usamos maybeSingle + ilike para evitar fallos por mayúsculas/minúsculas.
+      const { data: userData } = await supabase
         .from('preinscripciones')
         .select('*')
-        .eq('email', email)
-        .single();
+        .ilike('email', email)
+        .limit(1)
+        .maybeSingle();
+
+      const metadata = authData.user?.user_metadata as
+        | { nombre_completo?: string; telefono?: string }
+        | undefined;
 
       const user = {
         id: authData.user?.id || '',
         email: authData.user?.email || email,
-        nombreCompleto: userData?.nombre_completo || null,
-        telefono: userData?.telefono || null,
+        nombreCompleto:
+          userData?.nombre_completo || metadata?.nombre_completo || null,
+        telefono: userData?.telefono || metadata?.telefono || null,
         condicionPaciente: userData?.condicion_paciente || null,
         nivelIddsi: userData?.nivel_iddsi || null,
         planSeleccionado: userData?.plan_seleccionado || null,

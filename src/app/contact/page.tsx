@@ -26,7 +26,7 @@ export default function ContactPage() {
 
           {/* Contact Cards */}
           <div className="grid md:grid-cols-2 gap-6 mb-12">
-            {/* Email */}
+            {/* Gmail */}
             <div className="bg-white rounded-3xl shadow-xl p-8">
               <div className="flex items-center space-x-4 mb-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-[#E89B5A] to-[#D97757] rounded-full flex items-center justify-center">
@@ -34,14 +34,14 @@ export default function ContactPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-[#4A4A3F]">Email</h3>
+                <h3 className="text-xl font-bold text-[#4A4A3F]">Gmail</h3>
               </div>
               <p className="text-[#6B6B5B] mb-2">Escríbenos a:</p>
               <a
-                href="mailto:contacto@ambrosia.com"
+                href="mailto:ambrosiacomeconplacer@gmail.com"
                 className="text-[#E89B5A] font-semibold hover:underline"
               >
-                contacto@ambrosia.com
+                ambrosiacomeconplacer@gmail.com
               </a>
             </div>
 
@@ -57,14 +57,14 @@ export default function ContactPage() {
               </div>
               <p className="text-[#6B6B5B] mb-2">Llámanos al:</p>
               <a
-                href="tel:+573001234567"
+                href="tel:+573214189983"
                 className="text-[#E89B5A] font-semibold hover:underline"
               >
-                +57 300 123 4567
+                321 418 9983
               </a>
             </div>
 
-            {/* Dirección */}
+            {/* Instagram */}
             <div className="bg-white rounded-3xl shadow-xl p-8">
               <div className="flex items-center space-x-4 mb-4">
                 <div className="w-12 h-12 bg-gradient-to-br from-[#E89B5A] to-[#D97757] rounded-full flex items-center justify-center">
@@ -73,12 +73,16 @@ export default function ContactPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-[#4A4A3F]">Dirección</h3>
+                <h3 className="text-xl font-bold text-[#4A4A3F]">Instagram</h3>
               </div>
-              <p className="text-[#6B6B5B]">
-                Calle Principal 123<br />
-                Ciudad, País
-              </p>
+              <a
+                href="https://instagram.com/ambrosia.foodcare"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#E89B5A] font-semibold hover:underline"
+              >
+                @ambrosia.foodcare
+              </a>
             </div>
 
             {/* Horario */}

@@ -144,9 +144,9 @@ export default function PerfilPage() {
                 <div className="px-4 py-3 bg-gradient-to-r from-[#E89B5A]/10 to-[#D97757]/10 rounded-xl text-[#4A4A3F] font-semibold capitalize">
                   {user.planSeleccionado
                     ? user.planSeleccionado === 'mensual'
-                      ? 'Plan Mensual - $4.000.000'
+                      ? 'Plan Mensual - $4.227.200'
                       : user.planSeleccionado === 'trimestral'
-                        ? 'Plan Trimestral - $6.000.000'
+                        ? 'Plan Trimestral - $6.340.800'
                         : user.planSeleccionado
                     : 'No seleccionado'}
                 </div>

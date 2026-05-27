@@ -7,7 +7,14 @@ export async function POST(request: NextRequest) {
     const body: PreinscripcionData = await request.json();
 
     // Validación básica
-    if (!body.nombreCompleto || !body.email || !body.telefono || !body.condicionPaciente) {
+    if (
+      !body.nombreCompleto ||
+      !body.email ||
+      !body.telefono ||
+      !body.condicionPaciente ||
+      !body.password ||
+      !body.confirmPassword
+    ) {
       return NextResponse.json(
         {
           success: false,
@@ -29,6 +36,26 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (body.password.length < 6) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: 'La contraseña debe tener al menos 6 caracteres',
+        } as PreinscripcionResponse,
+        { status: 400 }
+      );
+    }
+
+    if (body.password !== body.confirmPassword) {
+      return NextResponse.json(
+        {
+          success: false,
+          message: 'Las contraseñas no coinciden',
+        } as PreinscripcionResponse,
+        { status: 400 }
+      );
+    }
+
     // Verificar si Supabase está configurado
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -38,23 +65,25 @@ export async function POST(request: NextRequest) {
       const { createClient } = await import('@supabase/supabase-js');
       const supabase = createClient(supabaseUrl, supabaseKey);
 
+      // Construir redirectTo con el origen real (útil en Vercel)
+      const origin = request.headers.get('origin') || `https://${request.headers.get('host') || 'localhost:3000'}`;
+      const emailRedirectTo = `${origin}/login`;
+
       // 1. Intentar crear cuenta de usuario automáticamente
       // Si el usuario ya existe, simplemente continuamos
       let authUserId: string | null = null;
       let accountCreated = false;
+      let accountAlreadyExisted = false;
 
-      // Generar una contraseña temporal segura
-      const tempPassword = `Temp${Math.random().toString(36).slice(2)}${Date.now().toString(36)}!A1`;
-      
       const { data: authData, error: authError } = await supabase.auth.signUp({
         email: body.email,
-        password: tempPassword,
+        password: body.password,
         options: {
           data: {
             nombre_completo: body.nombreCompleto,
             telefono: body.telefono,
           },
-          emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/login`,
+          emailRedirectTo,
         },
       });
 
@@ -62,7 +91,8 @@ export async function POST(request: NextRequest) {
         // Si el usuario ya existe, no es un error crítico
         if (authError.message.includes('already registered') || authError.message.includes('User already registered')) {
           console.log('ℹ️ Usuario ya existe en Auth, continuando con preinscripción...');
-          // Intentar obtener el ID del usuario existente (esto requeriría admin, así que lo omitimos)
+          accountAlreadyExisted = true;
+          // Intentar obtener el ID del usuario existente requeriría admin, así que lo omitimos.
         } else {
           console.error('Error creating user:', authError);
           // Continuamos de todas formas, el usuario puede crear su cuenta después
@@ -153,7 +183,11 @@ export async function POST(request: NextRequest) {
       // 4. Retornar éxito
       let message = 'Preinscripción realizada exitosamente.';
       if (accountCreated) {
-        message = 'Preinscripción realizada exitosamente. Tu cuenta ha sido creada automáticamente. Revisa tu email para establecer tu contraseña.';
+        message =
+          'Preinscripción realizada exitosamente. Tu cuenta se creó con la contraseña que ingresaste. Si tu cuenta requiere confirmación de email, revisa tu correo.';
+      } else if (accountAlreadyExisted) {
+        message =
+          'Preinscripción realizada exitosamente. La cuenta ya existía: si no recuerdas tu contraseña, usa "recuperar contraseña" para setearla.';
       }
 
       return NextResponse.json(
@@ -163,7 +197,13 @@ export async function POST(request: NextRequest) {
           userId: preinscripcionId,
           authUserId: authUserId,
           accountCreated: accountCreated,
-        } as PreinscripcionResponse & { authUserId?: string; accountCreated?: boolean },
+          accountAlreadyExisted: accountAlreadyExisted,
+        } as
+          | (PreinscripcionResponse & {
+              authUserId?: string;
+              accountCreated?: boolean;
+              accountAlreadyExisted?: boolean;
+            }),
         { status: 200 }
       );
     }

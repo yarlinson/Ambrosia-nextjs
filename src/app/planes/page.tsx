@@ -3,7 +3,7 @@ import Link from "next/link";
 const planes = [
   {
     nombre: "Plan Mensual",
-    precio: "$4.000.000",
+    precio: "$4.227.200",
     descripcion:
       "Diseñado para asegurar acompañamiento constante y menús adaptados a la guía IDDSI.",
     beneficios: [
@@ -19,7 +19,7 @@ const planes = [
   },
   {
     nombre: "Plan Trimestral",
-    precio: "$6.000.000",
+    precio: "$6.340.800",
     descripcion:
       "Ideal para un enfoque prolongado con seguimiento profesional integral.",
     beneficios: [

@@ -13,6 +13,8 @@ interface FormData {
   nivelIddsi: string;
   observaciones: string;
   planSeleccionado: string;
+  password: string;
+  confirmPassword: string;
 }
 
 export default function PreinscripcionPage() {
@@ -22,6 +24,7 @@ export default function PreinscripcionPage() {
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
   const [accountCreated, setAccountCreated] = useState(false);
+  const [accountAlreadyExisted, setAccountAlreadyExisted] = useState(false);
   
   const [formData, setFormData] = useState<FormData>({
     nombreCompleto: '',
@@ -31,6 +34,8 @@ export default function PreinscripcionPage() {
     nivelIddsi: '',
     observaciones: '',
     planSeleccionado: '',
+    password: '',
+    confirmPassword: '',
   });
 
   const handleChange = (
@@ -65,6 +70,16 @@ export default function PreinscripcionPage() {
       setError('La información sobre la condición del paciente es requerida');
       return false;
     }
+
+    if (formData.password.length < 6) {
+      setError('La contraseña debe tener al menos 6 caracteres');
+      return false;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      setError('Las contraseñas no coinciden');
+      return false;
+    }
     return true;
   };
 
@@ -95,11 +110,14 @@ export default function PreinscripcionPage() {
 
       setSuccess(true);
       setAccountCreated(data.accountCreated || false);
+      setAccountAlreadyExisted(data.accountAlreadyExisted || false);
       
       // Redirigir después de mostrar el mensaje
       setTimeout(() => {
         if (data.accountCreated) {
           router.push('/login');
+        } else if (data.accountAlreadyExisted) {
+          router.push('/recuperar-password');
         } else {
           router.push('/planes');
         }
@@ -135,9 +153,11 @@ export default function PreinscripcionPage() {
             ¡Preinscripción exitosa!
           </h2>
           <p className="text-[#6B6B5B] mb-6">
-            {accountCreated 
-              ? 'Tu cuenta ha sido creada automáticamente. Revisa tu email para establecer tu contraseña y poder iniciar sesión.'
-              : 'Tu información ha sido guardada exitosamente. Te redirigiremos en unos momentos...'}
+            {accountCreated
+              ? 'Tu cuenta se creó con la contraseña que ingresaste. Si te pide confirmación, revisa tu correo y luego inicia sesión.'
+              : accountAlreadyExisted
+                ? 'Tu preinscripción se guardó. La cuenta ya existía: si no recuerdas tu contraseña, usa "recuperar contraseña".'
+                : 'Tu información ha sido guardada exitosamente. Te redirigiremos en unos momentos...'}
           </p>
           {accountCreated && (
             <Link
@@ -145,6 +165,15 @@ export default function PreinscripcionPage() {
               className="inline-block mt-4 px-6 py-2 bg-gradient-to-r from-[#E89B5A] to-[#D97757] text-white rounded-lg font-semibold hover:shadow-lg transition-all"
             >
               Ir a Iniciar Sesión
+            </Link>
+          )}
+
+          {accountAlreadyExisted && (
+            <Link
+              href="/recuperar-password"
+              className="inline-block mt-4 px-6 py-2 bg-gradient-to-r from-[#E89B5A] to-[#D97757] text-white rounded-lg font-semibold hover:shadow-lg transition-all"
+            >
+              Ir a Recuperar Contraseña
             </Link>
           )}
         </div>
@@ -269,8 +298,8 @@ export default function PreinscripcionPage() {
                   className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#E89B5A] focus:border-transparent outline-none transition-all bg-white text-[#4A4A3F]"
                 >
                   <option value="">Selecciona un plan (opcional)</option>
-                  <option value="mensual">Plan Mensual - $4.000.000</option>
-                  <option value="trimestral">Plan Trimestral - $6.000.000</option>
+                  <option value="mensual">Plan Mensual - $4.227.200</option>
+                  <option value="trimestral">Plan Trimestral - $6.340.800</option>
                 </select>
               </div>
 
@@ -319,6 +348,48 @@ export default function PreinscripcionPage() {
                   <option value="6">Nivel 6 - Purés suaves y húmedos</option>
                   <option value="7">Nivel 7 - Alimentos regulares</option>
                 </select>
+              </div>
+
+              {/* Password */}
+              <div>
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-semibold text-[#4A4A3F] mb-2"
+                >
+                  Contraseña <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                  minLength={6}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#E89B5A] focus:border-transparent outline-none transition-all text-[#4A4A3F] placeholder-gray-400"
+                  placeholder="Crea tu contraseña"
+                />
+              </div>
+
+              {/* Confirm Password */}
+              <div>
+                <label
+                  htmlFor="confirmPassword"
+                  className="block text-sm font-semibold text-[#4A4A3F] mb-2"
+                >
+                  Confirmar contraseña <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  required
+                  minLength={6}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#E89B5A] focus:border-transparent outline-none transition-all text-[#4A4A3F] placeholder-gray-400"
+                  placeholder="Repite tu contraseña"
+                />
               </div>
 
               {/* Observaciones */}

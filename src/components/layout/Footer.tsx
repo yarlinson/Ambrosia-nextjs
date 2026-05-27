@@ -133,7 +133,7 @@ const Footer = () => {
                 </svg>
                 <div>
                   <p className="text-gray-600 text-sm">Teléfono</p>
-                  <p className="text-gray-500 text-xs">+1 (555) 123-4567</p>
+                  <p className="text-gray-500 text-xs">321 418 9983</p>
                 </div>
               </div>
               
@@ -142,8 +142,18 @@ const Footer = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                 </svg>
                 <div>
-                  <p className="text-gray-600 text-sm">Email</p>
-                  <p className="text-gray-500 text-xs">info@ambrosia.com</p>
+                  <p className="text-gray-600 text-sm">Gmail</p>
+                  <p className="text-gray-500 text-xs">ambrosiacomeconplacer@gmail.com</p>
+                </div>
+              </div>
+
+              <div className="flex items-start space-x-3">
+                <svg className="w-5 h-5 text-gray-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h6m-9 8h16a2 2 0 002-2V6a2 2 0 00-2-2H4a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                </svg>
+                <div>
+                  <p className="text-gray-600 text-sm">Instagram</p>
+                  <p className="text-gray-500 text-xs">@ambrosia.foodcare</p>
                 </div>
               </div>
               
