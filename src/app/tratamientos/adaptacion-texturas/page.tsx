@@ -4,57 +4,57 @@ export default function AdaptacionTexturas() {
   const nivelesIDDSI = [
     {
       nivel: 0,
-      nombre: "Líquidos finos",
-      descripcion: "Líquidos que fluyen muy rápido",
+      nombre: "Fino",
+      descripcion: "Fluye como el agua",
       color: "from-blue-100 to-blue-50",
       iconColor: "text-blue-600"
     },
     {
       nivel: 1,
-      nombre: "Líquidos ligeramente espesos",
-      descripcion: "Líquidos que se espesan levemente",
+      nombre: "Ligeramente espeso",
+      descripcion: "Más espesa que el agua",
       color: "from-cyan-100 to-cyan-50",
       iconColor: "text-cyan-600"
     },
     {
       nivel: 2,
-      nombre: "Líquidos moderadamente espesos",
-      descripcion: "Líquidos con consistencia cremosa",
+      nombre: "Poco espeso",
+      descripcion: "Puede sorberse de un vaso, pero requiere esfuerzo para ser succionada",
       color: "from-teal-100 to-teal-50",
       iconColor: "text-teal-600"
     },
     {
       nivel: 3,
-      nombre: "Líquidos extremadamente espesos",
-      descripcion: "Líquidos muy espesos, casi gelatinosos",
+      nombre: "Moderadamente espeso / Licuado",
+      descripcion: "Puede comerse con cuchara o beberse de un vaso",
       color: "from-green-100 to-green-50",
       iconColor: "text-green-600"
     },
     {
       nivel: 4,
-      nombre: "Purés extremadamente espesos",
-      descripcion: "Purés muy espesos y homogéneos",
+      nombre: "Extremadamente espeso / Puré",
+      descripcion: "No contiene grumos, no es pegajosa, no requiere capacidad de masticación",
       color: "from-yellow-100 to-yellow-50",
       iconColor: "text-yellow-600"
     },
     {
       nivel: 5,
-      nombre: "Purés espesos",
-      descripcion: "Purés con consistencia de pudín",
+      nombre: "Picado y húmedo",
+      descripcion: "Es muy suave, tiene grumos húmedos, pequeños, requiere mínima capacidad de masticación",
       color: "from-orange-100 to-orange-50",
       iconColor: "text-orange-600"
     },
     {
       nivel: 6,
-      nombre: "Purés suaves y húmedos",
-      descripcion: "Alimentos suaves y húmedos, fácilmente masticables",
+      nombre: "Suave y tamaño bocado",
+      descripcion: "Blanda y húmeda, no tiene líquido fino goteando aparte y demanda habilidad para masticar",
       color: "from-red-100 to-red-50",
       iconColor: "text-red-600"
     },
     {
       nivel: 7,
-      nombre: "Alimentos regulares",
-      descripcion: "Alimentos normales sin restricciones",
+      nombre: "Fácil de masticar / Regular",
+      descripcion: "Alimentos normales con texturas variada, apropiadas según edad cronológica y desarrollo. Habilidad para morder y masticar requerida",
       color: "from-purple-100 to-purple-50",
       iconColor: "text-purple-600"
     }
@@ -110,9 +110,9 @@ export default function AdaptacionTexturas() {
           {/* Niveles IDDSI */}
           <div className="mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-[#4A4A3F] mb-8 text-center">
-              Los 8 Niveles IDDSI
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                Los 7 Niveles IDDSI
+              </h2>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {nivelesIDDSI.map((nivel) => (
                 <div 
                   key={nivel.nivel}

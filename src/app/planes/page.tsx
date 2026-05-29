@@ -7,7 +7,7 @@ const planes = [
     descripcion:
       "Diseñado para asegurar acompañamiento constante y menús adaptados a la guía IDDSI.",
     beneficios: [
-      "Menús personalizados según nivel IDDSI (3–6)",
+      "Menús personalizados según nivel IDDSI",
       "3 comidas principales + 2 refrigerios diarios",
       "Valoración nutricional y ajuste semanal",
       "Acompañamiento quincenal fonoaudiológico",

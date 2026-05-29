@@ -33,14 +33,14 @@ const anexos = [
     title: "Portafolio de Servicios Ambrosia",
     description:
       "Conoce nuestros servicios integrales de alimentación segura, planes personalizados, acompañamiento profesional y productos especializados para personas con disfagia.",
-    file: "/docs/PORTAFOLIO DE SERVICIOS AMBROSIA .pdf-1.pdf",
+    file: "/docs/PORTAFOLIO DE SERVICIO AMBROSÍA (1).pdf",
     icon: "📋",
   },
   {
     title: "Ficha Técnica Ambrosia",
     description:
       "Modelo de atención integral para personas con disfagia. Especificaciones técnicas, características del servicio y protocolos de seguridad alimentaria.",
-    file: "/docs/Ficha técnica Ambrosia .pdf",
+    file: "/docs/FICHA TECNICA AMBROSÍA.pdf",
     icon: "📄",
   },
   {
