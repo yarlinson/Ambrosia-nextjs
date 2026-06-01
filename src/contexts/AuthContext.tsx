@@ -65,7 +65,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
 
       setUser(data.user);
-      router.push('/perfil');
     } catch (error) {
       throw error;
     }

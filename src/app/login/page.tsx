@@ -1,17 +1,27 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import Link from 'next/link';
 import { useAuth } from '@/contexts/AuthContext';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function LoginPage() {
+  return (
+    <Suspense fallback={null}>
+      <LoginForm />
+    </Suspense>
+  );
+}
+
+function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { login } = useAuth();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get('redirect') || '/perfil';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,12 +30,25 @@ export default function LoginPage() {
 
     try {
       await login(email, password);
+      router.push(redirectTo);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error al iniciar sesión');
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  return <LoginFormContent {...{ email, setEmail, password, setPassword, error, isSubmitting, handleSubmit }} />;
+}
+
+function LoginFormContent({
+  email, setEmail, password, setPassword, error, isSubmitting, handleSubmit,
+}: {
+  email: string; setEmail: (v: string) => void;
+  password: string; setPassword: (v: string) => void;
+  error: string | null; isSubmitting: boolean;
+  handleSubmit: (e: React.FormEvent) => Promise<void>;
+}) {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#FAF8F3] via-white to-[#FAF8F3]">

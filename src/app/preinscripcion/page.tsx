@@ -114,7 +114,9 @@ export default function PreinscripcionPage() {
       
       // Redirigir después de mostrar el mensaje
       setTimeout(() => {
-        if (data.accountCreated) {
+        if (formData.planSeleccionado) {
+          router.push('/login?redirect=/metodo-pago');
+        } else if (data.accountCreated) {
           router.push('/login');
         } else if (data.accountAlreadyExisted) {
           router.push('/recuperar-password');

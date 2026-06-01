@@ -10,6 +10,7 @@ export default function PerfilPage() {
   const router = useRouter();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const [pagoRealizado, setPagoRealizado] = useState(false);
+  const [showCancelModal, setShowCancelModal] = useState(false);
 
   useEffect(() => {
     if (!loading && !user) {
@@ -24,6 +25,14 @@ export default function PerfilPage() {
   const handleLogout = async () => {
     setIsLoggingOut(true);
     await logout();
+  };
+
+  const handleCancelMembership = () => {
+    if (user?.id) {
+      localStorage.removeItem(`pago_${user.id}`);
+      setPagoRealizado(false);
+      setShowCancelModal(false);
+    }
   };
 
   if (loading) {
@@ -205,7 +214,50 @@ export default function PerfilPage() {
                 </p>
               </div>
             )}
+            {pagoRealizado && (
+              <div className="mt-4 pt-4 border-t border-gray-100">
+                <button
+                  onClick={() => setShowCancelModal(true)}
+                  className="text-sm text-red-500 hover:text-red-600 hover:underline transition-colors flex items-center gap-1.5"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  Cancelar membresía
+                </button>
+              </div>
+            )}
           </div>
+
+          {showCancelModal && (
+            <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50">
+              <div className="bg-white rounded-3xl p-8 text-center shadow-2xl max-w-sm mx-4">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4.5c-.77-.833-2.694-.833-3.464 0L3.34 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-[#4A4A3F] mb-2">Cancelar membresía</h3>
+                <p className="text-[#6B6B5B] text-sm mb-8">
+                  ¿Estás seguro? Perderás acceso a los beneficios de tu plan. Esta acción no se puede deshacer.
+                </p>
+                <div className="flex flex-col gap-3">
+                  <button
+                    onClick={handleCancelMembership}
+                    className="w-full py-3 bg-red-500 text-white rounded-xl font-semibold hover:bg-red-600 transition-all"
+                  >
+                    Sí, cancelar membresía
+                  </button>
+                  <button
+                    onClick={() => setShowCancelModal(false)}
+                    className="w-full py-3 border-2 border-gray-200 text-[#4A4A3F] rounded-xl font-semibold hover:bg-gray-50 transition-all"
+                  >
+                    Mantener membresía
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-4">
