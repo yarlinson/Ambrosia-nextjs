@@ -9,10 +9,15 @@ export default function PerfilPage() {
   const { user, loading, logout } = useAuth();
   const router = useRouter();
   const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const [pagoRealizado, setPagoRealizado] = useState(false);
 
   useEffect(() => {
     if (!loading && !user) {
       router.push('/login');
+    }
+    const saved = localStorage.getItem(`pago_${user?.id}`);
+    if (saved === 'true') {
+      setPagoRealizado(true);
     }
   }, [user, loading, router]);
 
@@ -152,6 +157,54 @@ export default function PerfilPage() {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Método de Pago */}
+          <div className="bg-white rounded-3xl shadow-xl p-8 lg:p-10 mb-6">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center ${
+                  pagoRealizado ? 'bg-green-100' : 'bg-[#FAF8F3]'
+                }`}>
+                  <svg className={`w-7 h-7 ${pagoRealizado ? 'text-green-600' : 'text-[#E89B5A]'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                  </svg>
+                </div>
+                <div>
+                  <h2 className="text-2xl font-bold text-[#4A4A3F]">Método de Pago</h2>
+                  <p className="text-[#6B6B5B]">
+                    {pagoRealizado
+                      ? 'Tu plan está activo y al día'
+                      : 'Completa el pago para activar tu plan'}
+                  </p>
+                </div>
+              </div>
+              <div className="text-right">
+                {pagoRealizado ? (
+                  <span className="inline-flex items-center px-4 py-2 bg-green-100 text-green-700 rounded-full font-semibold text-sm">
+                    <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Plan Activo
+                  </span>
+                ) : (
+                  <Link href="/metodo-pago" className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#E89B5A] to-[#D97757] text-white rounded-xl font-semibold hover:shadow-lg transition-all text-sm">
+                    Pagar ahora
+                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                )}
+              </div>
+            </div>
+            {pagoRealizado && user.planSeleccionado && (
+              <div className="mt-4 p-4 bg-green-50 rounded-xl border border-green-200">
+                <p className="text-sm text-green-700">
+                  <strong>Plan activo:</strong>{' '}
+                  {user.planSeleccionado === 'mensual' ? 'Plan Mensual - $4.227.200' : 'Plan Trimestral - $6.340.800'}
+                </p>
+              </div>
+            )}
           </div>
 
           {/* Actions */}

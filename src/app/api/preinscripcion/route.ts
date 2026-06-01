@@ -78,13 +78,14 @@ export async function POST(request: NextRequest) {
       const { data: authData, error: authError } = await supabase.auth.signUp({
         email: body.email,
         password: body.password,
-        options: {
-          data: {
-            nombre_completo: body.nombreCompleto,
-            telefono: body.telefono,
+          options: {
+            data: {
+              nombre_completo: body.nombreCompleto,
+              telefono: body.telefono,
+              plan_seleccionado: body.planSeleccionado || null,
+            },
+            emailRedirectTo,
           },
-          emailRedirectTo,
-        },
       });
 
       if (authError) {

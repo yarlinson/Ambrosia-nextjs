@@ -44,6 +44,13 @@ const anexos = [
     icon: "📄",
   },
   {
+    title: "Buenas Prácticas de Manipulación de Alimentos",
+    description:
+      "Guía de buenas prácticas para la manipulación segura de alimentos adaptados, estándares de higiene y protocolos sanitarios.",
+    file: "/docs/BUENAS PRÁCTICA DE MANIPULACIÓN DE ALIMENTOS AMBROSÍA.pdf",
+    icon: "🧼",
+  },
+  {
     title: "Guía de Manipulación de Alimentos",
     description:
       "Protocolos de inocuidad alimentaria, estándares IDDSI, temperaturas seguras y buenas prácticas para la preparación y manipulación de alimentos adaptados.",

@@ -176,6 +176,15 @@ export default function PreinscripcionPage() {
               Ir a Recuperar Contraseña
             </Link>
           )}
+
+          {(formData.planSeleccionado && (accountCreated || accountAlreadyExisted)) && (
+            <Link
+              href="/metodo-pago"
+              className="inline-block mt-4 px-6 py-2 border-2 border-[#E89B5A] text-[#E89B5A] rounded-lg font-semibold hover:bg-[#FAF8F3] transition-all"
+            >
+              Ir a Método de Pago
+            </Link>
+          )}
         </div>
       </div>
     );

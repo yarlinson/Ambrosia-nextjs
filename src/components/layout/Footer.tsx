@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-[#E89B5A] to-[#D97757] text-[#4A4A3F]">
+    <footer className="bg-gradient-to-r from-[#F5D4B8] to-[#EBC4A0] text-[#4A4A3F]">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -157,7 +157,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-500 text-sm">
-              © 2026 Ambrosia. Todos los derechos reservados.
+              © 2025-2026 Ambrosia. Todos los derechos reservados.
             </div>
             <div className="flex space-x-6">
               <a href="/docs/Politica_Privacidad_Ambrosia.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-[#E89B5A] transition-colors duration-300 text-sm">

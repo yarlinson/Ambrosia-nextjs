@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
         .maybeSingle();
 
       const metadata = authData.user?.user_metadata as
-        | { nombre_completo?: string; telefono?: string }
+        | { nombre_completo?: string; telefono?: string; plan_seleccionado?: string }
         | undefined;
 
       const user = {
@@ -54,7 +54,8 @@ export async function POST(request: NextRequest) {
         telefono: userData?.telefono || metadata?.telefono || null,
         condicionPaciente: userData?.condicion_paciente || null,
         nivelIddsi: userData?.nivel_iddsi || null,
-        planSeleccionado: userData?.plan_seleccionado || null,
+        planSeleccionado:
+          userData?.plan_seleccionado || metadata?.plan_seleccionado || null,
       };
 
       // Crear cookie de sesión
