@@ -5,12 +5,13 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '@/contexts/AuthContext';
 
-type PaymentMethodId = 'card' | 'pse' | 'paypal';
+type PaymentMethodId = 'card' | 'pse' | 'paypal' | 'addi';
 
 interface PaymentData {
   method: PaymentMethodId | null;
   card?: { number: string; expiry: string; cvc: string; name: string };
   pse?: { bank: string };
+  addi?: { documentId: string; fullName: string; installments: number };
 }
 
 interface PaymentMethod {
@@ -62,6 +63,17 @@ const paymentMethods: PaymentMethod[] = [
     icon: (
       <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
         <path d="M7.076 21.337H2.47a.641.641 0 01-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106z"/>
+      </svg>
+    ),
+  },
+  {
+    id: 'addi',
+    name: 'Addi',
+    description: 'Crédito en cuotas sin tarjeta',
+    gradient: 'from-purple-500 to-purple-700',
+    icon: (
+      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
   },
@@ -123,6 +135,7 @@ export default function MetodoPagoPage() {
   const handlePagar = useCallback(async () => {
     if (!paymentData.method) return;
     if (paymentData.method === 'pse' && !bancoPse) return;
+    if (paymentData.method === 'addi' && (!paymentData.addi?.documentId || !paymentData.addi?.fullName || !paymentData.addi?.installments)) return;
 
     setIsPaying(true);
 
@@ -135,6 +148,7 @@ export default function MetodoPagoPage() {
       ...(paymentData.method === 'card' && { card: paymentData.card }),
       ...(paymentData.method === 'pse' && { bank: bancoPse }),
       ...(paymentData.method === 'paypal' && {}),
+      ...(paymentData.method === 'addi' && { addi: paymentData.addi }),
     };
 
     // TODO: POST to /api/pagos or your payment gateway
@@ -481,6 +495,86 @@ export default function MetodoPagoPage() {
                             </div>
                           </div>
                         )}
+
+                        {isSelected && method.id === 'addi' && (
+                          <div className="overflow-hidden transition-all duration-300">
+                            <div className="p-6 bg-gray-50/80 rounded-2xl mt-3 ml-4 border border-gray-100 space-y-5">
+                              <div className="flex items-center gap-3 mb-2">
+                                <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-purple-700 rounded-lg flex items-center justify-center">
+                                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                  </svg>
+                                </div>
+                                <div>
+                                  <p className="font-semibold text-[#4A4A3F]">Addi</p>
+                                  <p className="text-xs text-[#6B6B5B]">Crédito en cuotas sin necesidad de tarjeta</p>
+                                </div>
+                              </div>
+                              <div>
+                                <label className="block text-sm font-semibold text-[#4A4A3F] mb-2">Número de documento</label>
+                                <input
+                                  type="text"
+                                  inputMode="numeric"
+                                  placeholder="Cédula de ciudadanía"
+                                  value={paymentData.addi?.documentId || ''}
+                                  onChange={(e) => {
+                                    const cleaned = e.target.value.replace(/\D/g, '').slice(0, 15);
+                                    setPaymentData((prev) => ({
+                                      ...prev,
+                                      addi: { ...prev.addi!, documentId: cleaned },
+                                    }));
+                                  }}
+                                  className="w-full px-4 py-3.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#E89B5A] focus:border-transparent outline-none text-[#4A4A3F] bg-white transition-all"
+                                />
+                              </div>
+                              <div>
+                                <label className="block text-sm font-semibold text-[#4A4A3F] mb-2">Nombre completo</label>
+                                <input
+                                  type="text"
+                                  placeholder="Como aparece en tu documento"
+                                  value={paymentData.addi?.fullName || ''}
+                                  onChange={(e) => {
+                                    setPaymentData((prev) => ({
+                                      ...prev,
+                                      addi: { ...prev.addi!, fullName: e.target.value },
+                                    }));
+                                  }}
+                                  className="w-full px-4 py-3.5 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#E89B5A] focus:border-transparent outline-none text-[#4A4A3F] bg-white transition-all"
+                                />
+                              </div>
+                              <div>
+                                <label className="block text-sm font-semibold text-[#4A4A3F] mb-2">Número de cuotas</label>
+                                <div className="grid grid-cols-4 gap-3">
+                                  {[3, 6, 12, 24].map((cuota) => (
+                                    <button
+                                      key={cuota}
+                                      type="button"
+                                      onClick={() => {
+                                        setPaymentData((prev) => ({
+                                          ...prev,
+                                          addi: { ...prev.addi!, installments: cuota },
+                                        }));
+                                      }}
+                                      className={`p-3 rounded-xl border text-sm font-medium transition-all duration-200 ${
+                                        paymentData.addi?.installments === cuota
+                                          ? 'border-purple-500 bg-purple-50 text-purple-700 ring-1 ring-purple-500/20'
+                                          : 'border-gray-200 text-[#4A4A3F] hover:border-gray-300 hover:shadow-sm bg-white'
+                                      }`}
+                                    >
+                                      {cuota}
+                                    </button>
+                                  ))}
+                                </div>
+                              </div>
+                              <div className="flex items-center gap-2 text-xs text-[#6B6B5B] pt-2">
+                                <svg className="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                </svg>
+                                Aprobación sujeta a evaluación de crédito de Addi
+                              </div>
+                            </div>
+                          </div>
+                        )}
                       </div>
                     );
                   })}
@@ -491,9 +585,9 @@ export default function MetodoPagoPage() {
                     <button
                       type="button"
                       onClick={handlePagar}
-                      disabled={isPaying || (paymentData.method === 'pse' && !bancoPse)}
+                      disabled={isPaying || (paymentData.method === 'pse' && !bancoPse) || (paymentData.method === 'addi' && (!paymentData.addi?.documentId || !paymentData.addi?.fullName || !paymentData.addi?.installments))}
                       className={`w-full py-4 rounded-xl font-semibold text-base transition-all duration-300 ${
-                        isPaying || (paymentData.method === 'pse' && !bancoPse)
+                        isPaying || (paymentData.method === 'pse' && !bancoPse) || (paymentData.method === 'addi' && (!paymentData.addi?.documentId || !paymentData.addi?.fullName || !paymentData.addi?.installments))
                           ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
                           : 'bg-gradient-to-r from-[#E89B5A] to-[#D97757] text-white hover:shadow-xl hover:shadow-[#E89B5A]/30 hover:scale-[1.01] active:scale-[0.99]'
                       }`}
@@ -508,6 +602,14 @@ export default function MetodoPagoPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01" />
                       </svg>
                       Selecciona un banco para continuar
+                    </p>
+                  )}
+                  {paymentData.method === 'addi' && (!paymentData.addi?.documentId || !paymentData.addi?.fullName || !paymentData.addi?.installments) && (
+                    <p className="text-sm text-red-500 text-center flex items-center justify-center gap-1.5">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01" />
+                      </svg>
+                      Completa todos los campos para continuar
                     </p>
                   )}
                 </div>

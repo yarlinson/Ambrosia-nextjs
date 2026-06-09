@@ -50,13 +50,6 @@ const anexos = [
     file: "/docs/BUENAS PRÁCTICA DE MANIPULACIÓN DE ALIMENTOS AMBROSÍA.pdf",
     icon: "🧼",
   },
-  {
-    title: "Guía de Manipulación de Alimentos",
-    description:
-      "Protocolos de inocuidad alimentaria, estándares IDDSI, temperaturas seguras y buenas prácticas para la preparación y manipulación de alimentos adaptados.",
-    file: "/docs/GUIA DE MANIPULACION DE ALIMENTOS_AMBROSIA.pdf",
-    icon: "🍽️",
-  },
 ];
 
 export default function AnexosPage() {
